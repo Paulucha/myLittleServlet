@@ -27,18 +27,18 @@ public class MyAppServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
         LocalDate czas = LocalDate.now();
-        String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//pl\">\n";
+        String docType = "<!doctype html>\n";
         writer.println(docType +
-                "<html>\n" +
-                "<head><title>" + request.getParameter("name") + "</title></head>\n" +
+                "<html lang=\"pl-PL\">\n" +
+                "<head><title>"+"<meta charset=\"UTF-8\">" + request.getParameter("name") + "</title></head>\n" +
                 "<br/><h2 align = \"center\"><font color = GREEN>" + " WITAJ!" + "</font></h2>\n" +
                 "<body bgcolor = \"#f0f0f0\">\n" +
                 "<h1 align = \"center\"><font color = blue>" + request.getParameter("name") + " " + request.getParameter("surname") + "</font></h1>\n" +
-                "<h3 align = \"center\">" + "Twój zespół to:" + "</h1>\n" +
+                "<h3 align = \"center\">" + "Twój zespól to:" + "</h1>\n" +
                 "<h1 align = \"center\"><font color = blue>" + request.getParameter("team") + "</font></h1>\n" +
                 "<h3 align = \"center\">" + "dzisiejsza data to: " + "</h3>\n" +
                 "<h2 align = \"center\"><font color = blue>" + czas + "</font></h2>\n" + "<br><br><br>" +
-                        "<font color = black>"+"                      .       .\n" +
+                        "<h4><font color = black><pre>"+"                      .       .\n" +
                 "                        / `.   .' \\\n" +
                 "                .---.  <    > <    >  .---.\n" +
                 "                |    \\  \\ - ~ ~ - /  /    |\n" +
@@ -51,7 +51,7 @@ public class MyAppServlet extends HttpServlet {
                 "       `-.      |       /      |       /      `. ,~~|\n" +
                 "           ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:\n" +
                 "                |     /        |     /     ~-.     `-. _||_||_\n" +
-                "                |_____|        |_____|         ~ - . _ _ _ _ _>" + "</font>\n<br>" +
+                "                |_____|        |_____|         ~ - . _ _ _ _ _>" + "</font>\n<br></pre></h4>" +
                 "</body></html>"
         );
 
